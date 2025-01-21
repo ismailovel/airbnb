@@ -1,10 +1,3 @@
-//
-//  WishlistsView.swift
-//  Airbnb
-//
-//  Created by Ismailov on 15.01.2025.
-//
-
 import SwiftUI
 
 struct WishlistsView: View {

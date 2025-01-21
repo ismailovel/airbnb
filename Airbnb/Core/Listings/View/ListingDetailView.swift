@@ -1,25 +1,18 @@
-//
-//  ListingDetailView.swift
-//  Airbnb
-//
-//  Created by Ismailov on 10.01.25.
-//
-
 import SwiftUI
 import MapKit
 
 struct ListingDetailView: View {
     @Environment(\.dismiss) var dismiss
     let listing: Listing
-    @State private var cameraPosition: MapCameraPosition = .automatic
+    @State private var cameraPosition: MapCameraPosition
     
-    //    init(listing: Listing) {
-    //        self.listing = listing
-    //
-    //        let region = MKCoordinateRegion(center: .init(latitude: listing.latitude, longitude: listing.longitude), span: MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1))
-    //
-    //        self._cameraPosition = State(initialValue: .region(region))
-    //    }
+    init(listing: Listing) {
+        self.listing = listing
+        
+        let region = MKCoordinateRegion(center: .init(latitude: listing.latitude, longitude: listing.longitude), span: MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1))
+        
+        self._cameraPosition = State(initialValue: .region(region))
+    }
     
     var body: some View {
         ScrollView {
@@ -51,7 +44,7 @@ struct ListingDetailView: View {
                     HStack(spacing: 2) {
                         Image(systemName: "star.fill")
                         
-                        Text("\(listing.rating)")
+                        Text(String(format: "%.2f", listing.rating))
                         
                         Text(" - ")
                         
@@ -177,13 +170,6 @@ struct ListingDetailView: View {
                 Map(position: $cameraPosition)
                     .frame(height: 200)
                     .clipShape(RoundedRectangle(cornerRadius: 12))
-                    .onAppear {
-                        let region = MKCoordinateRegion(
-                            center: .init(latitude: listing.latitude, longitude: listing.longitude),
-                            span: MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1)
-                        )
-                        cameraPosition = .region(region)
-                    }
             }
             .padding()
         }

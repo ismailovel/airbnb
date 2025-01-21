@@ -1,10 +1,3 @@
-//
-//  ListingImageCarouselView.swift
-//  Airbnb
-//
-//  Created by Ismailov on 10.01.25.
-//
-
 import SwiftUI
 
 struct ListingImageCarouselView: View {

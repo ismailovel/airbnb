@@ -1,10 +1,3 @@
-//
-//  ExploreView.swift
-//  Airbnb
-//
-//  Created by Ismailov on 09.01.25.
-//
-
 import SwiftUI
 
 struct ExploreView: View {
@@ -15,10 +8,10 @@ struct ExploreView: View {
         NavigationStack {
             
             if showDestinationSearchView {
-                DestinationSearchView(show: $showDestinationSearchView)
+                DestinationSearchView(show: $showDestinationSearchView, viewModel: viewModel)
             } else {
                 ScrollView {
-                    SearchAndFilterBar()
+                    SearchAndFilterBar(location: $viewModel.searchLocation)
                         .onTapGesture {
                             withAnimation(.snappy) {
                                 showDestinationSearchView.toggle()

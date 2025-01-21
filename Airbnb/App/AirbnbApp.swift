@@ -1,10 +1,3 @@
-//
-//  AirbnbApp.swift
-//  Airbnb
-//
-//  Created by Ismailov on 07.01.25.
-//
-
 import SwiftUI
 
 @main

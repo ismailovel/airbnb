@@ -1,10 +1,3 @@
-//
-//  Listing.swift
-//  Airbnb
-//
-//  Created by Ismailov on 16.01.2025.
-//
-
 import Foundation
 
 struct Listing: Identifiable, Codable, Hashable {
